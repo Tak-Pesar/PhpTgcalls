@@ -30,6 +30,7 @@ final class API implements Stringable {
 				return FFI::string($this->buffer);
 			}
 		};
+		var_dump($anonymous->getCData());
 		$this->ffi->ntg_create($this->uid,$this->chatid,$mediaDescription->getCData(),$buffer,1024,$anonymous->getCData());
 		return $anonymous;
 	}

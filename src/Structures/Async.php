@@ -14,11 +14,11 @@ use FFI;
 
 use FFI\CData;
 
-readonly class Async {
+class Async {
 	protected DeferredFuture $deferredFuture;
-	public CData | null $async;
-	public CData | null $userData;
-	public CData | null $errorCode;
+	public readonly CData | null $async;
+	public readonly CData | null $userData;
+	public readonly CData | null $errorCode;
 
 	public function __construct(protected FFI $ffi){
 		$this->deferredFuture = new DeferredFuture();
@@ -32,6 +32,7 @@ readonly class Async {
 		$this->async->errorCode = FFI::addr($this->errorCode);
 	}
 	public function callback(CData $data) : void {
+		var_dump('callback : ',$data);
 		$this->deferredFuture->complete($data[0]);
 	}
 	public function await(? Cancellation $cancellation = null) : mixed {

@@ -18,7 +18,7 @@ final class Load {
 		if(is_null($lib)):
 			$lib = __DIR__.DIRECTORY_SEPARATOR.'ntgcalls.dll';
 		endif;
-		$this->ffi = FFI::cdef(simplifyHeader($header),$lib);
+		$this->ffi = FFI::cdef($this->simplifyHeader($header),$lib);
 	}
 	private function simplifyHeader(string $path) : string {
 		$content = read($path);
@@ -57,8 +57,8 @@ final class Load {
 			throw new \Exception('Call to undefined function '.$name.'()');
 		endif;
 	}
-	private function createObject(string $class) : object | false {
-		return class_exists($class) ? new $class : false;
+	private function createObject(string $class) : string | false {
+		return class_exists($class) ? $class : false;
 	}
 }
 
