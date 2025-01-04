@@ -1,0 +1,34 @@
+{
+    "name": "tak/phptgcalls",
+    "description": "An API for use ntgcalls library functions in php",
+    "type": "framework",
+    "keywords": [
+        "ntgcalls",
+        "phptgcalls",
+        "tgcalls",
+        "asynchronous",
+        "groupcall",
+        "videocall",
+        "voicecall"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tak\\PhpTgcalls\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tak Pesar",
+            "email": "loser.man.2007@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "ext-ffi": "*"
+    },
+    "require-dev": {
+        "amphp/amp": "3"
+    }
+}
